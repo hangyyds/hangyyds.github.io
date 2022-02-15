@@ -393,10 +393,10 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
-  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
-  <script type="text/javascript">
+<!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
   var gitalk = new Gitalk({
     clientID: '3ec81e9d65f1aad993c5',
     clientSecret: '20ca6e716b005d1e1be2271b8f7f5bf94221e43a',
@@ -406,10 +406,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     id: md5(location.pathname),
     distractionFreeMode: true,
     language: 'zh-CN',
-    enableHotKey: 'true'
+    enableHotKey: 'true',
+    proxy: 'https://broken-wind-43d3.shihang97223958.workers.dev/?https://github.com/login/oauth/access_token',
   })
   gitalk.render('comments')
-  </script>
+</script>
+
       
 
 
