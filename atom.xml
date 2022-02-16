@@ -6,7 +6,7 @@
   <link href="https://hangyyds.github.io/atom.xml" rel="self"/>
   
   <link href="https://hangyyds.github.io/"/>
-  <updated>2022-02-14T08:12:36.091Z</updated>
+  <updated>2022-02-16T00:57:12.248Z</updated>
   <id>https://hangyyds.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java随手笔记</title>
+    <link href="https://hangyyds.github.io/2022/02/16/Java%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>https://hangyyds.github.io/2022/02/16/Java%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0/</id>
+    <published>2022-02-16T00:52:20.000Z</published>
+    <updated>2022-02-16T00:57:12.248Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、SpringBoot"><a href="#一、SpringBoot" class="headerlink" title="一、SpringBoot"></a>一、SpringBoot</h1><h2 id="1-SpringBoot-框架中的-DAO-层、Entity-层、Service-层、Controller-层"><a href="#1-SpringBoot-框架中的-DAO-层、Entity-层、Service-层、Controller-层" class="headerlink" title="1.SpringBoot 框架中的 DAO 层、Entity 层、Service 层、Controller 层"></a>1.SpringBoot 框架中的 DAO 层、Entity 层、Service 层、Controller 层</h2><blockquote><p>一般的项目模块中都有 DAO、Entity、Service、Controller 层。</p></blockquote><ul><li><h5 id="Entity-层：实体层-数据库在项目中的类"><a href="#Entity-层：实体层-数据库在项目中的类" class="headerlink" title="Entity 层：实体层 数据库在项目中的类"></a>Entity 层：实体层 数据库在项目中的类</h5></li></ul><blockquote><p>Entity 层是实体层，也就是所谓的 model，也称为 pojo 层，是数据库在项目中的类，该文件包含实体类的属性和对应属性的 set、get 方法；</p></blockquote><ul><li><h5 id="DAO-层：-持久层-主要与数据库进行交互"><a href="#DAO-层：-持久层-主要与数据库进行交互" class="headerlink" title="DAO 层： 持久层 主要与数据库进行交互"></a>DAO 层： 持久层 主要与数据库进行交互</h5></li></ul><blockquote><p>DAO 层=mapper 层，现在用 Mybatis 逆向工程生成的 mapper 层，其实就是 dao 层。DAO 层会调用 entity 层，DAO 中会定义实际使用到的方法，比如增删改查。DAO 层的数据源和数据库连接的参数都是在配置文件中进行配置的，配置文件一般在同层的 XML 文件夹中。数据持久化操作就是指，把数据放到持久化的介质中，同时提供增删改查操作。</p></blockquote><ul><li><h5 id="Service-层：业务层-控制业务"><a href="#Service-层：业务层-控制业务" class="headerlink" title="Service 层：业务层 控制业务"></a>Service 层：业务层 控制业务</h5></li></ul><blockquote><p>Service 层主要负责业务模块的逻辑应用设计。先设计放接口的类，再创建实现的类，然后在配置文件中进行配置其实现的关联。service 层调用 dao 层接口，接收 dao 层返回的数据，完成项目的基本功能设计。</p><p>封装 Service 层的业务逻辑有利于业务逻辑的独立性和重复利用性。</p></blockquote><ul><li><h5 id="Controller-层：控制层-控制业务逻辑"><a href="#Controller-层：控制层-控制业务逻辑" class="headerlink" title="Controller 层：控制层 控制业务逻辑"></a>Controller 层：控制层 控制业务逻辑</h5></li></ul><blockquote><p>Controller 层负责具体的业务模块流程的控制，controller 层负责前后端交互，接受前端请求，调用 service 层，接收 service 层返回的数据，最后返回具体的页面和数据到客户端。<br>Controller 层像是一个服务员，他把客人（前端）点的菜（数据、请求的类型等）进行汇总什么口味、咸淡、量的多少，交给厨师长（Service 层），厨师长则告诉沾板厨师（Dao 1）、汤料房（Dao 2）、配菜厨师（Dao 3）等（统称 Dao 层）我需要什么样的半成品，副厨们（Dao 层）就负责完成厨师长（Service）交代的任务。</p></blockquote><ul><li><h5 id="在具体的项目中，其流程为："><a href="#在具体的项目中，其流程为：" class="headerlink" title="在具体的项目中，其流程为："></a>在具体的项目中，其流程为：</h5></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Controller--&gt;service接口--&gt;serviceImpl--&gt;dao接口--&gt;daoImpl--&gt;mapper--&gt;db</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一、SpringBoot&quot;&gt;&lt;a href=&quot;#一、SpringBoot&quot; class=&quot;headerlink&quot; title=&quot;一、SpringBoot&quot;&gt;&lt;/a&gt;一、SpringBoot&lt;/h1&gt;&lt;h2 id=&quot;1-SpringBoot-框架中的-DAO-层、E</summary>
+      
+    
+    
+    
+    <category term="Java" scheme="https://hangyyds.github.io/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="https://hangyyds.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>开启博客之旅</title>
     <link href="https://hangyyds.github.io/2022/02/14/%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/"/>
     <id>https://hangyyds.github.io/2022/02/14/%E5%BC%80%E5%90%AF%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/</id>
     <published>2022-02-14T08:09:59.000Z</published>
-    <updated>2022-02-14T08:12:36.091Z</updated>
+    <updated>2022-02-15T06:53:26.822Z</updated>
     
     <content type="html"><![CDATA[<h3 id="创建的第一篇文章，博客搭建并托管-github-成功。"><a href="#创建的第一篇文章，博客搭建并托管-github-成功。" class="headerlink" title="创建的第一篇文章，博客搭建并托管 github 成功。"></a>创建的第一篇文章，博客搭建并托管 github 成功。</h3>]]></content>
     
@@ -33,6 +57,10 @@
     
     
     
+    <category term="Test" scheme="https://hangyyds.github.io/categories/Test/"/>
+    
+    
+    <category term="Test" scheme="https://hangyyds.github.io/tags/Test/"/>
     
   </entry>
   
