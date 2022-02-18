@@ -25,15 +25,15 @@
 <meta property="og:site_name" content="Shih&#39;s blog">
 <meta property="og:description" content="对java爬虫的笔记记录前言​    最近无聊开始瞎折腾爬虫相关的功能，目前只接触到非常浅显的知识，做做笔记吧，不然总觉得一天又白折腾，啥也没收获到。通过在github上的搜索，找到了一个Java开发的爬虫框架–AiPa,一款小巧、灵活的Java多线程爬虫框架，依赖当下最简单的HTML解析器Jsoup，只需要使用者提供网址集合，即可在多线程下自动爬取，并对一些异常进行处理。  AiPa仓库链接：h">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hangyyds.github.io/.io//url.png">
-<meta property="og:image" content="https://hangyyds.github.io/.io//01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%5C%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E5%AD%97%E6%AE%B5.png">
-<meta property="og:image" content="https://hangyyds.github.io/.io//01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%5Cresult.png">
+<meta property="og:image" content="https://hangyyds.github.io/.io//02/16/01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/url.png">
+<meta property="og:image" content="https://hangyyds.github.io/.io//02/16/01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E5%AD%97%E6%AE%B5.png">
+<meta property="og:image" content="https://hangyyds.github.io/.io//02/16/01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/result.png">
 <meta property="article:published_time" content="2022-02-16T10:44:48.000Z">
-<meta property="article:modified_time" content="2022-02-17T08:59:26.869Z">
+<meta property="article:modified_time" content="2022-02-18T01:13:53.484Z">
 <meta property="article:author" content="shih">
 <meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hangyyds.github.io/.io//url.png">
+<meta name="twitter:image" content="https://hangyyds.github.io/.io//02/16/01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/url.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://hangyyds.github.io/2022/02/16/01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/index.html">
   
@@ -423,7 +423,10 @@
 <blockquote>
 <p>首先通过chrome浏览器调试获取对应url</p>
 </blockquote>
-<p><img src="/.io//url.png"></p>
+<img src="/.io//02/16/01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/url.png" class>
+
+
+
 <blockquote>
 <p>基本的步骤如下：</p>
 </blockquote>
@@ -443,7 +446,12 @@
 <blockquote>
 <p>针对返回的json数据，分析其字段，根据自己想要的数据来定义对应的dto（javabean的编码我就不写啦！）。</p>
 </blockquote>
-<p><img src="/.io//01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%5C%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E5%AD%97%E6%AE%B5.png"></p>
+<img src="/.io//02/16/01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E5%AD%97%E6%AE%B5.png" class>
+
+
+
+
+
 <blockquote>
 <p>使用谷歌的gson工具来解析json数据。</p>
 </blockquote>
@@ -456,7 +464,7 @@
 <blockquote>
 <p>最后通过printwriter写到文本中。</p>
 </blockquote>
-<p><img src="/.io//01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%5Cresult.png"></p>
+<img src="/.io//02/16/01-%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/result.png" class>
 
       
     </div>
