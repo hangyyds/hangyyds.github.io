@@ -17,25 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>01-对java爬虫的笔记记录 | Shih&#39;s Blog</title>
-  <meta name="description" content="对java爬虫的笔记记录前言​    最近无聊开始瞎折腾爬虫相关的功能，目前只接触到非常浅显的知识，做做笔记吧，不然总觉得一天又白折腾，啥也没收获到。通过在github上的搜索，找到了一个Java开发的爬虫框架–AiPa,一款小巧、灵活的Java多线程爬虫框架，依赖当下最简单的HTML解析器Jsoup，只需要使用者提供网址集合，即可在多线程下自动爬取，并对一些异常进行处理。  AiPa仓库链接：h">
+  <title>01-Spring的学习 | Shih&#39;s Blog</title>
+  <meta name="description" content="Spring的学习​    Spring 的核心是一个 容器，通常称为 Spring 应用程序上下文，用于创建和管理应用程序组件。这些组件（或 bean）在 Spring 应用程序上下文中连接在一起以构成一个完整的应用程序，就像将砖、灰浆、木材、钉子、管道和电线绑在一起以组成房屋。 ​    将 bean 连接在一起的行为是基于一种称为 依赖注入（DI）的模式。依赖项注入的应用程序不是由组件自身创">
 <meta property="og:type" content="article">
-<meta property="og:title" content="01-对java爬虫的笔记记录">
-<meta property="og:url" content="https://hangyyds.github.io/2022/02/16/01-note_Spider/index.html">
+<meta property="og:title" content="01-Spring的学习">
+<meta property="og:url" content="https://hangyyds.github.io/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Shih&#39;s blog">
-<meta property="og:description" content="对java爬虫的笔记记录前言​    最近无聊开始瞎折腾爬虫相关的功能，目前只接触到非常浅显的知识，做做笔记吧，不然总觉得一天又白折腾，啥也没收获到。通过在github上的搜索，找到了一个Java开发的爬虫框架–AiPa,一款小巧、灵活的Java多线程爬虫框架，依赖当下最简单的HTML解析器Jsoup，只需要使用者提供网址集合，即可在多线程下自动爬取，并对一些异常进行处理。  AiPa仓库链接：h">
+<meta property="og:description" content="Spring的学习​    Spring 的核心是一个 容器，通常称为 Spring 应用程序上下文，用于创建和管理应用程序组件。这些组件（或 bean）在 Spring 应用程序上下文中连接在一起以构成一个完整的应用程序，就像将砖、灰浆、木材、钉子、管道和电线绑在一起以组成房屋。 ​    将 bean 连接在一起的行为是基于一种称为 依赖注入（DI）的模式。依赖项注入的应用程序不是由组件自身创">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hangyyds.github.io/2022/02/16/01-note_Spider/url.png">
-<meta property="og:image" content="https://hangyyds.github.io/2022/02/16/01-note_Spider/%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E5%AD%97%E6%AE%B5.png">
-<meta property="og:image" content="https://hangyyds.github.io/2022/02/16/01-note_Spider/result.png">
-<meta property="article:published_time" content="2022-02-16T10:44:48.000Z">
-<meta property="article:modified_time" content="2022-02-18T01:45:39.464Z">
+<meta property="og:image" content="https://hangyyds.github.io/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/springStructure.png">
+<meta property="article:published_time" content="2022-02-21T08:25:57.000Z">
+<meta property="article:modified_time" content="2022-02-25T03:16:43.320Z">
 <meta property="article:author" content="shih">
-<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hangyyds.github.io/2022/02/16/01-note_Spider/url.png">
+<meta name="twitter:image" content="https://hangyyds.github.io/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/springStructure.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://hangyyds.github.io/2022/02/16/01-note_Spider/index.html">
+  <link rel="canonical" href="https://hangyyds.github.io/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Shih&#39;s blog" type="application/atom+xml">
   
@@ -400,21 +398,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9java%E7%88%AC%E8%99%AB%E7%9A%84%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">对java爬虫的笔记记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AiPa%E5%88%9D%E4%BA%86%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">AiPa初了解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8HttpURLConnection%E4%B8%8E%E6%89%80%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.3.</span> <span class="toc-text">使用HttpURLConnection与所请求服务器连接</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">Spring的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring%E9%A3%8E%E6%99%AF%E7%BA%BF"><span class="toc-number">1.1.</span> <span class="toc-text">Spring风景线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">Spring核心框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Boot"><span class="toc-number">1.1.2.</span> <span class="toc-text">Spring Boot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Data"><span class="toc-number">1.1.3.</span> <span class="toc-text">Spring Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Security"><span class="toc-number">1.1.4.</span> <span class="toc-text">Spring Security</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Integration-%E5%92%8C-Spring-Batch"><span class="toc-number">1.1.5.</span> <span class="toc-text">Spring Integration 和 Spring Batch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Cloud"><span class="toc-number">1.1.6.</span> <span class="toc-text">Spring Cloud</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">Spring项目结构解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">Spring注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Web%E5%BC%80%E5%8F%91"><span class="toc-number">1.4.</span> <span class="toc-text">Spring Web开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%B1%BBcontroller"><span class="toc-number">1.4.1.</span> <span class="toc-text">控制器类controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text">验证表单输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E6%A8%A1%E6%9D%BF%E5%BA%93"><span class="toc-number">1.4.3.</span> <span class="toc-text">视图模板库</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-01-note_Spider" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-01-Spring的学习" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      01-对java爬虫的笔记记录
+      01-Spring的学习
     </h1>
   
 
@@ -422,20 +420,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2022/02/16/01-note_Spider/" class="article-date">
-	  <time datetime="2022-02-16T10:44:48.000Z" itemprop="datePublished">2022-02-16</time>
+	<a href="/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="article-date">
+	  <time datetime="2022-02-21T08:25:57.000Z" itemprop="datePublished">2022-02-21</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Java%E4%B9%8B%E7%9E%8E%E6%8A%98%E8%85%BE%E7%B3%BB%E5%88%97/">Java之瞎折腾系列</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/Spring/">Spring</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a>
+	<a class="article-tag-link-link" href="/tags/Spring/" rel="tag">Spring</a>
   </span>
 
 
@@ -448,74 +446,102 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/02/16/01-note_Spider/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 958(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.9k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="对java爬虫的笔记记录"><a href="#对java爬虫的笔记记录" class="headerlink" title="对java爬虫的笔记记录"></a>对java爬虫的笔记记录</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    最近无聊开始瞎折腾爬虫相关的功能，目前只接触到非常浅显的知识，做做笔记吧，不然总觉得一天又白折腾，啥也没收获到。通过在github上的搜索，找到了一个Java开发的爬虫框架–AiPa,一款小巧、灵活的Java多线程爬虫框架，依赖当下最简单的HTML解析器Jsoup，只需要使用者提供网址集合，即可在多线程下自动爬取，并对一些异常进行处理。</p>
-<blockquote>
-<p>AiPa仓库链接：<a target="_blank" rel="noopener" href="https://github.com/onblog/AiPa">https://github.com/onblog/AiPa</a></p>
+        <h1 id="Spring的学习"><a href="#Spring的学习" class="headerlink" title="Spring的学习"></a>Spring的学习</h1><p>​    Spring 的核心是一个 <em><strong>容器</strong></em>，通常称为 <em><strong>Spring 应用程序上下文</strong></em>，用于创建和管理应用程序组件。这些组件（或 bean）在 Spring 应用程序上下文中连接在一起以构成一个完整的应用程序，就像将砖、灰浆、木材、钉子、管道和电线绑在一起以组成房屋。</p>
+<p>​    将 bean 连接在一起的行为是基于一种称为 <strong><em>依赖注入</em>（DI）</strong>的模式。依赖项注入的应用程序不是由组件自身创建和维护它们依赖的其他 bean 的生命周期，而是依赖于单独的实体（容器）来创建和维护所有组件，并将这些组件注入需要它们的 bean。通常通过构造函数参数或属性访问器方法完成此操作。</p>
+<p>​    从历史上看，引导 Spring 应用程序上下文将 bean 连接在一起的方式是使用一个或多个 XML 文件，这些文件描述了组件及其与其他组件的关系。</p>
+<h2 id="Spring风景线"><a href="#Spring风景线" class="headerlink" title="Spring风景线"></a>Spring风景线</h2><h3 id="Spring核心框架"><a href="#Spring核心框架" class="headerlink" title="Spring核心框架"></a>Spring核心框架</h3><blockquote>
+<p>提供了核心容器和依赖注入框架，也提供了一些其他的基本特性：包括 Spring MVC 和 Spring web 框架，还提供了一些基本数据持久性支持，特别是基于模板的 JDBC 支持。</p>
 </blockquote>
-<h2 id="AiPa初了解"><a href="#AiPa初了解" class="headerlink" title="AiPa初了解"></a>AiPa初了解</h2><p>​    通过实现<strong>AiPaWorker</strong>接口，来处理html元素，获取你想要的内容。这种方式需要jsoup解析html元素，所以对jsoup工具也要有所了解。还一种方式是直接通过url获取所请求网站的接口，对返回的json数据进行加工处理，来获取你想要的内容。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AiPaWorker</span>&lt;T,S&gt; &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 如何解析爬下来的HTML文档？</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> doc JSOUP提供的文档</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> util 爬虫工具类</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    T <span class="title function_">run</span><span class="params">(Document doc, AiPaUtil util)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * run方法异常则执行fail方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> link 网址</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    S <span class="title function_">fail</span><span class="params">(String link)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​        <code>run()</code>方法是用户自定义处理爬取的HTML内容，一般是利用Jsoup的Document类进行解析，获取节点或属性等，然后保存到数据库或本地文件中。如果在业务方法需要再次请求URL，可以使用工具类Util。</p>
-<h2 id="使用HttpURLConnection与所请求服务器连接"><a href="#使用HttpURLConnection与所请求服务器连接" class="headerlink" title="使用HttpURLConnection与所请求服务器连接"></a>使用HttpURLConnection与所请求服务器连接</h2><p>​    除了抓取html元素，直接通过服务器接口返回json数据岂不是更香。这两天倒腾了一下，也走了不少弯路，勉强调通了一个接口，抓取微博的热搜榜相关信息。</p>
-<blockquote>
-<p>首先通过chrome浏览器调试获取对应url</p>
+<h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><blockquote>
+<p>启动依赖项和自动配置、运行时监控。</p>
 </blockquote>
-<img src="/2022/02/16/01-note_Spider/url.png" class="">
-
-
-
-<blockquote>
-<p>基本的步骤如下：</p>
+<h3 id="Spring-Data"><a href="#Spring-Data" class="headerlink" title="Spring Data"></a>Spring Data</h3><blockquote>
+<p>将应用程序的数据存储库抽象为简单的 Java 接口，同时当定义方法用于如何驱动数据进行存储和检索的问题时，对方法使用了命名约定。Spring Data 能够处理几种不同类型的数据库，包括关系型（JPA）、文档型（Mongo）、图型（Neo4j）等</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testWeiBoCall</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1.设置url</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> <span class="string">&quot;https://weibo.com/ajax/statuses/hot_band&quot;</span>;</span><br><span class="line">    <span class="comment">//2.输出路径</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">outputPath</span> <span class="operator">=</span> <span class="string">&quot;D:\\Work\\Java\\Study\\learnByIdea\\MySpider\\weibo-spider\\out\\output.txt&quot;</span>;</span><br><span class="line">    <span class="comment">//3.模拟验证登录时，可以配置data，功能暂未实现。</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">data</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//调接口</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">jsonData</span> <span class="operator">=</span> MyAiPaUtil.interfaceUtil(path, data);</span><br><span class="line">    <span class="comment">//解析获取的json数据</span></span><br><span class="line">    JsonUtil.parseWeiBoJsonData(jsonData,outputPath);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>使用httpURLConnection建立连接并获取输入流。</p>
+<h3 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h3><blockquote>
+<p>Spring Security 解决了广泛的应用程序安全性需求，包括身份验证、授权和 API 安全性。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">interfaceUtil</span><span class="params">(String path, String data)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">InputStream</span> <span class="variable">input</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="type">BufferedReader</span> <span class="variable">br</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="type">StringBuffer</span> <span class="variable">outStr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="type">URL</span> <span class="variable">url</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(path);</span><br><span class="line">        <span class="comment">//打开和url之间的连接</span></span><br><span class="line">        <span class="type">HttpURLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> (HttpURLConnection) url.openConnection();</span><br><span class="line">        <span class="comment">//设置通用的请求属性</span></span><br><span class="line">        connection.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">        connection.setRequestProperty(<span class="string">&quot;Accept&quot;</span>, <span class="string">&quot;application/json&quot;</span>);</span><br><span class="line">        connection.setRequestProperty(<span class="string">&quot;User-Agent&quot;</span>,<span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36&quot;</span>);</span><br><span class="line">        <span class="comment">//获取字节输入流</span></span><br><span class="line">        input = connection.getInputStream();</span><br><span class="line">        br = <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(input,<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">while</span> ((str = br.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            outStr.append(str);</span><br><span class="line">        &#125;</span><br><span class="line">        connection.disconnect();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">//关闭流最严谨的写法</span></span><br><span class="line">        <span class="keyword">if</span> (input != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                input.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (br != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                br.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> outStr.toString();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<blockquote>
-<p>针对返回的json数据，分析其字段，根据自己想要的数据来定义对应的dto（javabean的编码我就不写啦！）。</p>
+<h3 id="Spring-Integration-和-Spring-Batch"><a href="#Spring-Integration-和-Spring-Batch" class="headerlink" title="Spring Integration 和 Spring Batch"></a>Spring Integration 和 Spring Batch</h3><blockquote>
+<p>在某种程度上，大多数应用程序将需要与其他应用程序集成，甚至需要与同一应用程序的其他组件集成。为了满足这些需求，出现了几种应用程序集成模式。Spring Integration 和 Spring Batch 为基于 Spring 的应用程序提供了这些模式的实现。</p>
+<p>Spring Integration 解决了实时集成，即数据在可用时进行处理。相反，Spring Batch 解决了批量集成的问题，允许在一段时间内收集数据，直到某个触发器（可能是一个时间触发器）发出信号，表示该处理一批数据了。</p>
 </blockquote>
-<img src="/2022/02/16/01-note_Spider/%E5%BE%AE%E5%8D%9A%E7%83%AD%E6%90%9C%E5%AD%97%E6%AE%B5.png" class="">
-
-
-
-
-
-<blockquote>
-<p>使用谷歌的gson工具来解析json数据。</p>
+<h3 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h3><blockquote>
+<p>微服务</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">parseWeiBoJsonData</span><span class="params">(String jsonData, String outputPath)</span> &#123;</span><br><span class="line">    <span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line">    <span class="type">HotBandDto</span> <span class="variable">hotBandDto</span> <span class="operator">=</span> gson.fromJson(jsonData, HotBandDto.class);</span><br><span class="line">    writeToFile(outputPath, hotBandDto);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">writeToFile</span><span class="params">(String outputPath, HotBandDto hotBandDto)</span> &#123;</span><br><span class="line">    <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(outputPath);</span><br><span class="line">    <span class="type">WBData</span> <span class="variable">data</span> <span class="operator">=</span> hotBandDto.getData();</span><br><span class="line">    List&lt;BandList&gt; band_list = data.getBand_list();</span><br><span class="line">    <span class="type">BandList</span> <span class="variable">bandList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BandList</span>();</span><br><span class="line">    <span class="keyword">try</span> (<span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(file);</span><br><span class="line">         <span class="type">PrintWriter</span> <span class="variable">pw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrintWriter</span>(fw);) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; band_list.size(); i++) &#123;</span><br><span class="line">            bandList = band_list.get(i);</span><br><span class="line">            <span class="keyword">if</span> (bandList.getCategory() == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            pw.println(bandList.getCategory());</span><br><span class="line">            pw.flush();</span><br><span class="line">            pw.println(i + <span class="number">1</span> + <span class="string">&quot;.&quot;</span> + bandList.getWord());</span><br><span class="line">            pw.flush();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (bandList.getMblog().getPage_info() == <span class="literal">null</span>) &#123;</span><br><span class="line">                pw.println(bandList.getMblog().getText());</span><br><span class="line">                pw.flush();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                pw.println(bandList.getMblog().getPage_info().getContent2());</span><br><span class="line">                pw.flush();</span><br><span class="line">            &#125;</span><br><span class="line">            pw.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Spring项目结构解析"><a href="#Spring项目结构解析" class="headerlink" title="Spring项目结构解析"></a>Spring项目结构解析</h2><img src="/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/springStructure.png" class="">
 
 
 
-
-
+<ul>
+<li><code>mvnw</code> 和 <code>mvnw.cmd</code> —— 这些是 Maven 包装器脚本。即使你的计算机上没有安装 Maven，也可以使用这些脚本构建项目。</li>
+<li><code>pom.xml</code> —— 这是 Maven 构建规范。<ul>
+<li><code>&lt;packaging&gt;</code> 元素——选择将应用程序构建为可执行的 JAR 文件，而不是 WAR 文件。</li>
+<li><code>&lt;parent&gt;</code> 元素——指定您的项目将 <code>spring-boot-starter-parent</code> 作为它的父 POM。除此之外，这个父 POM 还为 Spring 项目中常用的几个库提供依赖项管理。对于父 POM 覆盖的那些库，不必指定版本，因为它是从父 POM 继承的。<code>2.0.4.RELEASE</code> 版本，表示你正在使用 Spring Boot 2.0.4，这样项目将使用继承自 Spring Boot 版本中定义的依赖项管理。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Spring注解"><a href="#Spring注解" class="headerlink" title="Spring注解"></a>Spring注解</h2><p><strong>@Configuration</strong></p>
 <blockquote>
-<p>最后通过printwriter写到文本中。</p>
+<p><strong>@Configuration</strong>注释向 Spring 表明这是一个配置类，它将为 Spring 应用程序上下文提供 beans。 配置的类方法带有 <code>@Bean</code> 注释，指示它们返回的对象应作为 beans 添加到应用程序上下文中（默认情况下，它们各自的 bean IDs 将与定义它们的方法的名称相同）。</p>
 </blockquote>
-<img src="/2022/02/16/01-note_Spider/result.png" class="">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ServiceConfiguration</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> InventoryService <span class="title function_">inventoryService</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">InventoryService</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> ProductService <span class="title function_">productService</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ProductService</span>(inventoryService());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>@SpringBootApplication</strong></p>
+<blockquote>
+<p><code>@SpringBootApplication</code> 注释清楚地表明这是一个 Spring 引导应用程序。但是 <code>@SpringBootApplication</code> 中有更多的东西。<code>@SpringBootApplication</code> 是一个组合了其他三个注释的复合应用程序：</p>
+<ul>
+<li><code>@SpringBootConfiguration</code> —— 指定这个类为配置类。尽管这个类中还没有太多配置，但是如果需要，可以将 Javabased Spring Framework 配置添加到这个类中。实际上，这个注释是<code>@Configuration</code> 注释的一种特殊形式。</li>
+<li><code>@EnableAutoConfiguration</code> —— 启用 Spring 自动配置，告诉 Spring Boot 自动配置它认为需要的任何组件。例如，添加了 <strong>spring-boot-starter-web</strong> 依赖，会自动添加 Tomcat 和 Spring MVC 的依赖，那么 Spring Boot 会对 Tomcat 和 Spring MVC 进行自动配置。</li>
+<li><code>@ComponentScan</code> —— 启用组件扫描。这允许你声明其他带有 <code>@Component</code>、<code>@Controller</code>、<code>@Service</code> 等注释的类，以便让 Spring 自动发现它们并将它们注册为 Spring 应用程序上下文中的组件。</li>
+</ul>
+</blockquote>
+<p><strong>@RunWith(SpringRunner.class)</strong></p>
+<blockquote>
+<p><code>@RunWith</code> 是一个 JUnit 注释，提供了一个测试运行器来引导 JUnit 运行测试用例。JUnit 被赋予了 SpringRunner，这是一个由 Spring 提供的测试运行程序，它提供了创建一个 Spring 应用程序上下文的功能，以供测试运行。</p>
+</blockquote>
+<p><strong>@SpringBootTest</strong></p>
+<blockquote>
+<p>告诉 JUnit 使用 Spring 引导功能引导测试。</p>
+</blockquote>
+<p><strong>@Controller</strong></p>
+<blockquote>
+<p>将该类识别为组件扫描的组件，以便 Spring 将发现该类并在 Spring 应用程序上下文中自动创建实例作为 bean。实际上，其他一些注释（包括 <code>@Component</code>、<code>@Service</code> 和 <code>@Repository</code>）的用途与 <code>@Controller</code> 类似。</p>
+</blockquote>
+<p><strong>@GetMapping(“/“)</strong></p>
+<blockquote>
+<p>以指示如果接收到根路径 <code>/</code> 的 HTTP GET 请求，则此方法应该处理该请求。</p>
+</blockquote>
+<p><strong>@RequestMapping(“/“)</strong></p>
+<blockquote>
+<p>@RequestMapping ——通用请求处理，注释在类级应用时，指定该控制器处理的请求的类型。</p>
+<p>@GetMapping——处理 HTTP GET 请求</p>
+<p>@PostMapping——处理 HTTP POST 请求</p>
+<p>@PutMapping——处理 HTTP PUT 请求</p>
+<p>@DeleteMapping——处理 HTTP DELETE 请求</p>
+<p>@PatchMapping——处理 HTTP PATCH 请求</p>
+</blockquote>
+<h2 id="Spring-Web开发"><a href="#Spring-Web开发" class="headerlink" title="Spring Web开发"></a>Spring Web开发</h2><p>​    在 Spring web 应用程序中，获取和处理数据是<strong>控制器</strong>的工作。<strong>视图</strong>的工作是将数据渲染成 HTML 并显示在浏览器中。</p>
+<h3 id="控制器类controller"><a href="#控制器类controller" class="headerlink" title="控制器类controller"></a>控制器类controller</h3><p>​    控制器是 Spring MVC 框架的主要参与者。它们的主要工作是处理 HTTP 请求，或者将请求传递给视图以呈现 HTML（浏览器显示），或者直接将数据写入响应体（RESTful）。</p>
+<h3 id="验证表单输入"><a href="#验证表单输入" class="headerlink" title="验证表单输入"></a>验证表单输入</h3><p>​    执行表单验证的一种方法是在方法中加入一堆 if/then 块，检查每个字段以确保它满足适当的验证规则。但是这样做会很麻烦，并且难于阅读和调试。幸运的是，<strong>Spring 支持 Java’s Bean Validation API</strong>（也称为 <strong>JSR-303</strong>；<a target="_blank" rel="noopener" href="https://jcp.org/en/jsr/detail?id=303%EF%BC%89%E3%80%82%E8%BF%99%E4%BD%BF%E5%BE%97%E5%A3%B0%E6%98%8E%E9%AA%8C%E8%AF%81%E8%A7%84%E5%88%99%E6%AF%94%E5%9C%A8%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%98%BE%E5%BC%8F%E5%9C%B0%E7%BC%96%E5%86%99%E5%A3%B0%E6%98%8E%E9%80%BB%E8%BE%91%E6%9B%B4%E5%AE%B9%E6%98%93%E3%80%82">https://jcp.org/en/jsr/detail?id=303）。这使得声明验证规则比在应用程序代码中显式地编写声明逻辑更容易。</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos;</span><br><span class="line">​</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.NotNull;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.Size;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line">​</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Taco</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="meta">@Size(min=5, message=&quot;Name must be at least 5 characters long&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Size(min=1, message=&quot;You must choose at least 1 ingredient&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; ingredients;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    需要将 Java Bean Validation API 的 <strong>@Valid</strong> 注释添加到参数中，来验证提交的对象。@Valid 注释告诉 Spring MVC 在提交的 Taco 对象绑定到提交的表单数据之后，以及调用 processDesign() 方法之前，对提交的 Taco 对象执行验证。如果存在任何验证错误，这些错误的详细信息将在传递到 processDesign() 的错误对象中捕获。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">processDesign</span><span class="params">(<span class="meta">@Valid</span> Taco design, Errors errors)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (errors.hasErrors()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;design&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Save the taco design...</span></span><br><span class="line">    <span class="comment">// We&#x27;ll do this in chapter 3</span></span><br><span class="line">    log.info(<span class="string">&quot;Processing design: &quot;</span> + design);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;redirect:/orders/current&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="视图模板库"><a href="#视图模板库" class="headerlink" title="视图模板库"></a>视图模板库</h3>
       
     </div>
     <div class="article-footer">
@@ -524,7 +550,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://hangyyds.github.io/2022/02/16/01-note_Spider/" title="01-对java爬虫的笔记记录" target="_blank" rel="external">https://hangyyds.github.io/2022/02/16/01-note_Spider/</a>
+      <a href="https://hangyyds.github.io/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/" title="01-Spring的学习" target="_blank" rel="external">https://hangyyds.github.io/2022/02/21/01-Spring的学习/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -571,12 +597,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2022/02/21/01-Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/" title="01-Spring的学习"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2022/02/25/01-Markdown%E6%89%8B%E5%86%8C/" title="01-Markdown手册"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2022/02/16/02-%E5%8F%8D%E6%B4%97%E9%92%B1%E4%B8%AD%E5%BF%83/" title="02-反洗钱中心"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2022/02/16/01-note_Spider/" title="01-对java爬虫的笔记记录"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
