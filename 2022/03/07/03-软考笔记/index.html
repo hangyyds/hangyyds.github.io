@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>03-软考笔记 | Shih&#39;s Blog</title>
+  <meta name="description" content="03-软考笔记操作系统基本原理文件管理空闲存储空间的管理位示图法 空闲区表法、空闲链表法、成组连接法 设备管理数据传输控制方式 程序控制（查询）方式   最低级的，需要CPU不断介入，外设被动，不能主动反馈信息，由cpu发送查询指令。   程序中断方式   外设主动，中断   DMA方式（专门的一个DMA控制器控制） 通道（专用计算机用） 输入输出处理机（专用计算机用）  数据库系统数据库模式三级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03-软考笔记">
+<meta property="og:url" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Shih&#39;s blog">
+<meta property="og:description" content="03-软考笔记操作系统基本原理文件管理空闲存储空间的管理位示图法 空闲区表法、空闲链表法、成组连接法 设备管理数据传输控制方式 程序控制（查询）方式   最低级的，需要CPU不断介入，外设被动，不能主动反馈信息，由cpu发送查询指令。   程序中断方式   外设主动，中断   DMA方式（专门的一个DMA控制器控制） 通道（专用计算机用） 输入输出处理机（专用计算机用）  数据库系统数据库模式三级">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%A1%E5%BC%8F.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/E-R%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E9%94%AE.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E8%8C%83%E5%BC%8F.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%85%E9%9A%9C.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E7%89%B9%E6%AE%8A%E5%90%AB%E4%B9%89ip%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E7%BD%91%E7%BB%9C.png">
+<meta property="og:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%A0%91.png">
+<meta property="article:published_time" content="2022-03-07T00:49:01.000Z">
+<meta property="article:modified_time" content="2022-04-07T11:39:19.447Z">
+<meta property="article:author" content="shih">
+<meta property="article:tag" content="软考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%A1%E5%BC%8F.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Shih&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/hangyyds" target="_blank">
+          <img class="img-circle img-rotate" src="/images/abc.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">abc</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">瞎折腾</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> HangZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/hangyyds" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>每日所读之书，最好分两类：一类是精读的，一类是浏览的。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Spring/">Spring</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E4%B9%8B%E7%9E%8E%E6%8A%98%E8%85%BE%E7%B3%BB%E5%88%97/">Java之瞎折腾系列</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Test/">Test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%A1%8C%E7%9F%A5%E8%AF%86/">银行知识</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sso/" rel="tag">sso</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webWork/" rel="tag">webWork</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E8%80%83/" rel="tag">软考</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1/" rel="tag">银行业务</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Spring/" style="font-size: 13px;">Spring</a> <a href="/tags/Test/" style="font-size: 13px;">Test</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/sso/" style="font-size: 13px;">sso</a> <a href="/tags/webWork/" style="font-size: 13px;">webWork</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 13px;">爬虫</a> <a href="/tags/%E8%BD%AF%E8%80%83/" style="font-size: 13px;">软考</a> <a href="/tags/%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1/" style="font-size: 14px;">银行业务</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/03/23/05-%E6%97%B6%E5%BA%8F%E5%9B%BE%E5%AD%A6%E4%B9%A0/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/23/05-%E6%97%B6%E5%BA%8F%E5%9B%BE%E5%AD%A6%E4%B9%A0/" class="title">05-时序图学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-23T01:10:30.000Z" itemprop="datePublished">2022-03-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/03/08/04-%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95sso/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/08/04-%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95sso/" class="title">04-单点登录sso</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-08T01:23:04.000Z" itemprop="datePublished">2022-03-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/" class="title">03-软考笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-07T00:49:01.000Z" itemprop="datePublished">2022-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/03/07/04-%E9%93%B6%E8%A1%8C%E4%BB%8E%E4%B8%9A-%E5%85%AC%E5%8F%B8%E4%BF%A1%E8%B4%B7%E7%AC%94%E8%AE%B0/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%93%B6%E8%A1%8C%E7%9F%A5%E8%AF%86/">银行知识</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/07/04-%E9%93%B6%E8%A1%8C%E4%BB%8E%E4%B8%9A-%E5%85%AC%E5%8F%B8%E4%BF%A1%E8%B4%B7%E7%AC%94%E8%AE%B0/" class="title">04-银行从业+公司信贷笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-07T00:45:49.000Z" itemprop="datePublished">2022-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/03/04/02-WebWork%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/04/02-WebWork%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="title">02-WebWork的学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-04T06:30:34.000Z" itemprop="datePublished">2022-03-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">03-软考笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E9%97%B2%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">空闲存储空间的管理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.2.</span> <span class="toc-text">设备管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">数据传输控制方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.</span> <span class="toc-text">数据库系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">数据库模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F-%E4%B8%A4%E7%BA%A7%E6%98%A0%E5%B0%84"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">三级模式-两级映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">数据库设计过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#E-R%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">E-R模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">关系代数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E8%8C%83%E5%8C%96%E7%90%86%E8%AE%BA"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">规范化理论</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%AE"><span class="toc-number">1.2.1.5.1.</span> <span class="toc-text">键</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8C%83%E5%BC%8F"><span class="toc-number">1.2.1.5.2.</span> <span class="toc-text">范式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%86%E8%A7%A3"><span class="toc-number">1.2.1.5.3.</span> <span class="toc-text">模式分解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.1.5.4.</span> <span class="toc-text">并发控制存在的问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%81%E9%94%81%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.1.5.5.</span> <span class="toc-text">封锁协议</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8"><span class="toc-number">1.2.1.5.6.</span> <span class="toc-text">数据库安全</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD"><span class="toc-number">1.2.1.5.7.</span> <span class="toc-text">数据备份</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%85%E9%9A%9C%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="toc-number">1.2.1.5.8.</span> <span class="toc-text">数据库故障与恢复</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98"><span class="toc-number">1.2.2.</span> <span class="toc-text">数据仓库与数据挖掘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-number">1.3.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%90%AB%E4%B9%89ip%E5%9C%B0%E5%9D%80"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">特殊含义ip地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5%E6%8A%80%E6%9C%AF"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">网络接入技术</span></a></li></ol></li></ol></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-03-软考笔记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      03-软考笔记
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/" class="article-date">
+	  <time datetime="2022-03-07T00:49:01.000Z" itemprop="datePublished">2022-03-07</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E8%BD%AF%E8%80%83/" rel="tag">软考</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 950(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="03-软考笔记"><a href="#03-软考笔记" class="headerlink" title="03-软考笔记"></a>03-软考笔记</h1><h2 id="操作系统基本原理"><a href="#操作系统基本原理" class="headerlink" title="操作系统基本原理"></a>操作系统基本原理</h2><h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><h4 id="空闲存储空间的管理"><a href="#空闲存储空间的管理" class="headerlink" title="空闲存储空间的管理"></a>空闲存储空间的管理</h4><p><strong>位示图法</strong></p>
+<p>空闲区表法、空闲链表法、成组连接法</p>
+<h3 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h3><h4 id="数据传输控制方式"><a href="#数据传输控制方式" class="headerlink" title="数据传输控制方式"></a>数据传输控制方式</h4><ul>
+<li>程序控制（查询）方式</li>
+</ul>
+<blockquote>
+<p>最低级的，需要CPU不断介入，外设被动，不能主动反馈信息，由cpu发送查询指令。</p>
+</blockquote>
+<ul>
+<li>程序中断方式</li>
+</ul>
+<blockquote>
+<p>外设主动，中断</p>
+</blockquote>
+<ul>
+<li>DMA方式（专门的一个DMA控制器控制）</li>
+<li>通道（专用计算机用）</li>
+<li>输入输出处理机（专用计算机用）</li>
+</ul>
+<h2 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h2><h3 id="数据库模式"><a href="#数据库模式" class="headerlink" title="数据库模式"></a>数据库模式</h3><h4 id="三级模式-两级映射"><a href="#三级模式-两级映射" class="headerlink" title="三级模式-两级映射"></a>三级模式-两级映射</h4><blockquote>
+<p>物理数据库（文件）–&gt; 内模式（连接、格式）–&gt; 概念模式（表）–&gt; 外模式（视图）</p>
+</blockquote>
+<img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%A1%E5%BC%8F.png" class="">
+
+<h4 id="数据库设计过程"><a href="#数据库设计过程" class="headerlink" title="数据库设计过程"></a>数据库设计过程</h4><img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.png" class="">
+
+<h4 id="E-R模型"><a href="#E-R模型" class="headerlink" title="E-R模型"></a>E-R模型</h4><img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/E-R%E6%A8%A1%E5%9E%8B.png" class="">
+
+<p><strong>集成方法：</strong></p>
+<ul>
+<li>多个局部E-R图一次集成</li>
+<li>逐步集成，用累加方式一次集成两个局部E-R。</li>
+</ul>
+<p><strong>集成产生的冲突：</strong></p>
+<ul>
+<li>属性冲突</li>
+<li>命名冲突</li>
+<li>结构冲突</li>
+</ul>
+<p><strong>一个实体型转换为一个关系模式</strong></p>
+<ul>
+<li>1:1联系</li>
+<li>1：n联系</li>
+<li>m：n联系</li>
+</ul>
+<h4 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h4><p><strong>投影</strong>（<em>π</em>）是选列的操作</p>
+<p><strong>选择（σ）</strong>是选行的操作</p>
+<p><strong>自然连接（<code>⋈</code>）</strong>相同部分只取一列进行连接</p>
+<h4 id="规范化理论"><a href="#规范化理论" class="headerlink" title="规范化理论"></a>规范化理论</h4><p>非规范化的关系模式，可能存在的问题：数据冗余、更新异常、插入异常、删除异常。</p>
+<h5 id="键"><a href="#键" class="headerlink" title="键"></a>键</h5><img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E9%94%AE.png" class="">
+
+<p><strong>超键</strong>可能存在冗余属性</p>
+<p><strong>候选键</strong>不存在冗余属性，可以有多个候选键</p>
+<p><strong>主键</strong>只有一个</p>
+<p><strong>外键</strong>是别的关系的主键</p>
+<h5 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h5><img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E8%8C%83%E5%BC%8F.png" class="">
+
+<p>第一范式(1NF)</p>
+<p>​    在关系模式R中，当且仅当所有域只包含原子值，即每个分量都是可不再分的数据项，则称R为第一范式。</p>
+<p>第二范式(2NF)</p>
+<p>​    当且仅当R是1NF，且每一个非主属性完全依赖主键（不存在部分依赖）时，则R是第二范式。</p>
+<p>第三范式(3NF)</p>
+<p>​    当且仅当R是1NF，且E中没有非主属性传递依赖于码时，则称R是第三范式</p>
+<h5 id="模式分解"><a href="#模式分解" class="headerlink" title="模式分解"></a>模式分解</h5><h5 id="并发控制存在的问题"><a href="#并发控制存在的问题" class="headerlink" title="并发控制存在的问题"></a>并发控制存在的问题</h5><p>丢失更新</p>
+<p>不可重复读</p>
+<p>读脏数据</p>
+<h5 id="封锁协议"><a href="#封锁协议" class="headerlink" title="封锁协议"></a>封锁协议</h5><p>一级封锁协议，可防止丢失修改。</p>
+<p>二级封锁协议，可防止丢失修改，防止读脏数据</p>
+<p>三级封锁协议，可防止丢失修改，防止读脏数据、防止数据重复读 </p>
+<h5 id="数据库安全"><a href="#数据库安全" class="headerlink" title="数据库安全"></a>数据库安全</h5><img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8.png" class="">
+
+<h5 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h5><p>冷备份：静态备份，将数据库关闭，在停止状态下，将数据库的文件全部备份。</p>
+<p>热备份：动态备份，利用备份软件，在数据库正常运行的状态下，将数据库中的数据文件备份下来。</p>
+<p>完全备份</p>
+<p>差量备份：仅备份上一次完全备份之后变化的数据。</p>
+<p>增量备份：备份上一次备份之后变化的数据。</p>
+<p>日志文件：事务日志是针对数据库改变所做的记录，他可以记录针对数据库的任何操作，并将记录结果保存在独立的文件中。</p>
+<h5 id="数据库故障与恢复"><a href="#数据库故障与恢复" class="headerlink" title="数据库故障与恢复"></a>数据库故障与恢复</h5><img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%85%E9%9A%9C.png" class="">
+
+<h3 id="数据仓库与数据挖掘"><a href="#数据仓库与数据挖掘" class="headerlink" title="数据仓库与数据挖掘"></a>数据仓库与数据挖掘</h3><p>数据仓库：面向主题的、集成的、相对稳定的、反应历史变化</p>
+<p>网络规划与设计-分层设计</p>
+<p>接入层：向本地网段提供用户接入</p>
+<p>汇聚层：网络访问策略控制、数据包处理、过滤、寻址</p>
+<p>核心层：数据交换</p>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h4 id="特殊含义ip地址"><a href="#特殊含义ip地址" class="headerlink" title="特殊含义ip地址"></a>特殊含义ip地址</h4><img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E7%89%B9%E6%AE%8A%E5%90%AB%E4%B9%89ip%E5%9C%B0%E5%9D%80.png" class="">
+
+
+
+<h4 id="网络接入技术"><a href="#网络接入技术" class="headerlink" title="网络接入技术"></a>网络接入技术</h4><img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E7%BD%91%E7%BB%9C.png" class="">
+
+<p>数字签名防抵赖</p>
+<p> 数据结构</p>
+<p>循环队列</p>
+<ul>
+<li>队空条件：head=tail</li>
+<li>队满条件：（tail + 1）% size=head</li>
+</ul>
+<p>出栈可能情况：  </p>
+<img src="/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/%E6%A0%91.png" class="">
+
+<p>平衡二叉树任意节点的左右 子树深度相差不超过1</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://hangyyds.github.io/2022/03/07/03-%E8%BD%AF%E8%80%83%E7%AC%94%E8%AE%B0/" title="03-软考笔记" target="_blank" rel="external">https://hangyyds.github.io/2022/03/07/03-软考笔记/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/hangyyds" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/abc.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/hangyyds" target="_blank"><span class="text-dark">abc</span><small class="ml-1x">瞎折腾</small></a></h3>
+        <div>Never, never, never, never give up!</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/03/08/04-%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95sso/" title="04-单点登录sso"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/03/07/04-%E9%93%B6%E8%A1%8C%E4%BB%8E%E4%B8%9A-%E5%85%AC%E5%8F%B8%E4%BF%A1%E8%B4%B7%E7%AC%94%E8%AE%B0/" title="04-银行从业+公司信贷笔记"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn   collapsed  " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/hangyyds" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+<!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+<script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3ec81e9d65f1aad993c5',
+    clientSecret: '20ca6e716b005d1e1be2271b8f7f5bf94221e43a',
+    repo: 'hangyyds.github.io',
+    owner: 'hangyyds',
+    admin: ['hangyyds'],
+    id: md5(location.pathname),
+    distractionFreeMode: true,
+    language: 'zh-CN',
+    enableHotKey: 'true',
+    proxy: 'https://broken-wind-43d3.shihang97223958.workers.dev/?https://github.com/login/oauth/access_token',
+  })
+  gitalk.render('comments')
+</script>
+
+      
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
